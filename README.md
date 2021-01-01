@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/codepunkt/gatsby-remark-opengraph"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/logo.png" alt="gatsby-remark-opengraph logo" width="200"></a>
+  <a href="https://github.com/codepunkt/gatsby-remark-opengraph"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/logo.png" alt="gatsby-remark-opengraph logo" width="250"></a>
   <br>
   gatsby-remark-opengraph
   <br>
@@ -25,7 +25,7 @@
   <a href="#key-features">Key Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#how-to-use">How to use</a> •
-  <a href="#as-a-gatsby-remark-plugin">Gatsby remark plugin</a> •
+  <a href="#gatsby-remark-plugin">Gatsby remark plugin</a> •
   <a href="#options">Options</a> •
   <a href="#general-usage">General usage</a> •
   <a href="#examples">Examples</a>
@@ -35,7 +35,8 @@
 
 If your website is shared, you’ll want to present the contents of your page in an optimal way to encourage people to pay it a visit. Open graph makes links to your website "unfold" into an image, title, and description.
 
-If you want to find out more about this, read my article "[Generating beautiful Open Graph images with Node.js](https://codepunkt.de/writing/generating-beautiful-open-graph-images-with-nodejs/)".
+If you want to find out more about this, read my article:<br/><br/>
+<a href="https://codepunkt.de/writing/generating-beautiful-open-graph-images-with-nodejs/"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg" alt="codepunkt.de open graph image" width="600" /></a>
 
 # Key Features
 
@@ -152,7 +153,3 @@ exports.createPages = async ({
 > Please provide me with examples of the open graph images that you generated! 😀
 >
 > I will choose a few beautiful examples and then show them here with a link to your site.
-
-<img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg" alt="codepunkt.de open graph image" width="1200" />
-
-\- [Codepunkt](https://codepunkt.de/)
