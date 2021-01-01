@@ -1,7 +1,7 @@
 {
   "name": "gatsby-remark-opengraph",
   "version": "1.0.0-beta.1",
-  "description": "Gatsby plugin to generate open graph images",
+  "description": "Generate open graph images for Gatsby",
   "author": "Christoph Werner <christoph@codepunkt.de>",
   "repository": {
     "type": "git",
