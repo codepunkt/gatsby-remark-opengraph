@@ -32,7 +32,7 @@
 If your website is shared, you’ll want to present the contents of your page in an optimal way to encourage people to pay it a visit. Open graph makes links to your website "unfold" into an image, title, and description.
 
 If you want to find out more about this, read my article:<br/><br/>
-<a href="https://codepunkt.de/writing/generating-beautiful-open-graph-images-with-nodejs/"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg" alt="codepunkt.de open graph image" width="600" /></a>
+<a href="https://codepunkt.de/writing/generating-beautiful-open-graph-images-with-nodejs/"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/article.jpg" alt="codepunkt.de open graph image" width="600" /></a>
 
 # Key Features
 
@@ -108,7 +108,7 @@ For each text that you want to write on top of your background, add an object to
 For each entry, you must at least provide the `text` itself and a `font` file:
 
 | Name                  | Type                        | Description           |                                                                                                                                                                                                                                                                  |
-| :-------------------- | :-------------------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :-------------------- | :-------------------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 | **`text`**            | string                      | _Required_            | Your text.                                                                                                                                                                                                                                                       |
 | **`font`**            | string                      | _Required_            | Absolute path to a TrueType `.ttf` font.                                                                                                                                                                                                                         |     |
 | **`fontSize`**        | number                      | Default `64`          | Font size of your text.                                                                                                                                                                                                                                          |
