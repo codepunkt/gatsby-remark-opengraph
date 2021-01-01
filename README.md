@@ -1,12 +1,12 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/codepunkt/gatsby-remark-opengraph"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/logo.png" alt="gatsby-remark-opengraph logo" width="450"></a>
+  <a href="https://github.com/codepunkt/gatsby-remark-opengraph"><img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/logo.png" alt="gatsby-remark-opengraph logo" width="200"></a>
   <br>
   gatsby-remark-opengraph
   <br>
 </h1>
 
-<h4 align="center">Generate open graph images for Gatsby</h4>
+<h4 align="center">Generate beautiful open graph images for Gatsby</h4>
 
 <p align="center">
   <a href="https://badge.fury.io/js/gatsby-remark-opengraph">
@@ -21,9 +21,111 @@
 </p>
 
 <p align="center">
+  <a href="#motivation">Motivation</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#how-to-use">How to use</a> •
-  <a href="#available-options">Available options</a> •
+  <a href="#as-a-gatsby-remark-plugin">Gatsby remark plugin</a> •
+  <a href="#options">Options</a> •
+  <a href="#general-usage">General usage</a> •
   <a href="#examples">Examples</a>
 </p>
+
+# Motivation
+
+If your website is shared, you’ll want to present the contents of your page in an optimal way to encourage people to pay it a visit. Open graph makes links to your website "unfold" into an image, title, and description.
+
+If you want to find out more about this, read my article "[Generating beautiful Open Graph images with Node.js](https://codepunkt.de/writing/generating-beautiful-open-graph-images-with-nodejs/)".
+
+# Key Features
+
+This plugin allows you to create beautiful open graph images for your Gatsby site at build time, tailor-made to your content.
+
+- Choose a background image or color
+- Layout any number of texts on top of that background
+- Choose font, size, color and alignment for every text
+- Choose custom image dimensions and restrict your text to bounding boxes
+
+# Installation
+
+Install `gatsby-remark-opengraph` as a development dependency to your current project
+
+#### npm
+
+```bash
+npm install -D gatsby-remark-opengraph
+```
+
+#### yarn
+
+```bash
+yarn add -D gatsby-remark-opengraph
+```
+
+# How to use
+
+The default usage of this package is as a gatsby remark plugin.
+
+However, you can also use it as a Node.js package to generate open graph images for any other usecase, for example for your Gatsby homepage or in a FaaS setup for your server side rendered site.
+
+## Gatsby remark plugin
+
+Use `gatsby-remark-opengraph` in the remark plugins array of your `gatsby-config.js`:
+
+```js
+plugins: [
+  {
+    resolve: 'gatsby-transformer-remark',
+    options: {
+      plugins: [
+        {
+          resolve: 'gatsby-remark-opengraph',
+          options: {
+            /**
+             * OPTIONS, see below!
+             */
+          },
+        },
+      ],
+    },
+  },
+],
+```
+
+## Options
+
+wat
+
+## General usage
+
+The plugin also exports a named function that accepts the same options as the remark plugin shown above, but function options are called with `null` instead of a markdownNode so it's a good idea to provide strings for `path` and `Text.text`.
+
+If you're using Gatsby, you can use this in your `gatsby-node.js` to generate a generic open graph image for your site:
+
+```js
+const { createImage } = require('gatsby-remark-opengraph')
+
+exports.createPages = async ({
+  actions,
+  graphql,
+  reporter,
+}) => {
+  await createImage({
+    // results in ./public/og-image.jpg if no filename is set
+    path: '',
+    /**
+     * more OPTIONS, see above!
+     */
+  })
+}
+```
+
+# Examples
+
+> Please provide me with examples of the open graph images that you generated! 😀
+>
+> I will choose a few beautiful examples from them and **link to your site here!**
+
+![codepunkt.de open graph image](https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg | width=1200)
+
+\- [Codepunkt](https://codepunkt.de/)
