@@ -94,7 +94,34 @@ plugins: [
 
 ## Options
 
-wat
+| Name             | Type    | Description              |                                                                                                                                 |
+| :--------------- | :------ | :----------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| **`background`** | string  | _Required_               | Either a 6 digit hex RGB color code or the absolute path to a background image.                                                 |
+| **`texts`**      | Text[]  | _Required_               | An array of `Text` configuration objects. Can be empty. See table below!                                                        |
+| **`filename`**   | string  | Default `'og-image.jpg'` | Filename the open graph image is saved as.                                                                                      |
+| **`width`**      | number  | Default: `1200`          | Width of open graph image in pixels.<br /> Must be equal to the background image width, if a background image is used.          |
+| **`height`**     | number  | Default: `630`           | Height of open graph image in pixels.<br /> Must be equal to the background image height, if a background image is used.        |
+| **`outputPath`** | string  | Default: `''`            | Path the open graph image is saved to.<br/>Is prefixed by `./public` and suffixed by the `filename` option to form a full path. |
+| **`log`**        | boolean | Default: `true`          | Toggles output logging.                                                                                                         |
+
+### `Text` options
+
+For each text that you want to write on top of your background, add an object to the array of texts.
+
+For each entry, you must at least provide the `text` itself and a `font` file:
+
+| Name                  | Type                          | Description           |                                                                                                                                                                                                                                                                  |
+| :-------------------- | :---------------------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| **`text`**            | string                        | _Required_            | Your text.                                                                                                                                                                                                                                                       |
+| **`font`**            | string                        | _Required_            | Absolute path to a TrueType `.ttf` font.                                                                                                                                                                                                                         |     |
+| **`fontSize`**        | number                        | Default `64`          | Font size of your text.                                                                                                                                                                                                                                          |
+| **`color`**           | string                        | Default: `'#000000'`  | 6 digit hex RGB color code.                                                                                                                                                                                                                                      |
+| **`x`**               | number                        | Default: `0`          | X position of your text in Pixels.                                                                                                                                                                                                                               |
+| **`y`**               | number                        | Default: `0`          | Y position of your text in Pixels.                                                                                                                                                                                                                               |
+| **`maxWidth`**        | number                        | Default: Image width  | Max width of your text. After reaching it, text will break to a new line.                                                                                                                                                                                        |
+| **`maxHeight`**       | number                        | Default: Image height | Max height of your text. After reaching it, an error will be thrown!                                                                                                                                                                                             |
+| **`horizontalAlign`** | 'left' \| 'center' \| 'right' | Default: `'left'`     | Horizontal alignment of your text.<br/><ul><li>`left`: text will grow to the right from it's `x` position</li><li>`center`: text will grow to left and right from it's `x` position</li><li>`right`: text will grow to the left from it's `x` position</li></ul> |
+| **`verticalAlign`**   | 'top' \| 'center' \| 'right'  | Default: `'top'`      | Vertical alignment of your text.<br/><ul><li>`top`: text will grow to the bottom from it's `y` position</li><li>`center`: text will grow to top and bottom from it's `y` position</li><li>`bottom`: text will grow to the top from it's `y` position</li></ul>   |
 
 ## General usage
 
@@ -124,8 +151,8 @@ exports.createPages = async ({
 
 > Please provide me with examples of the open graph images that you generated! 😀
 >
-> I will choose a few beautiful examples from them and **link to your site here!**
+> I will choose a few beautiful examples and then show them here with a link to your site.
 
-<img src="ttps://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg" alt="codepunkt.de open graph image" width="1200" />
+<img src="https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg" alt="codepunkt.de open graph image" width="1200" />
 
 \- [Codepunkt](https://codepunkt.de/)
