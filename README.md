@@ -126,6 +126,6 @@ exports.createPages = async ({
 >
 > I will choose a few beautiful examples from them and **link to your site here!**
 
-![codepunkt.de open graph image](https://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg | width=1200)
+<img src="ttps://raw.githubusercontent.com/codepunkt/gatsby-remark-opengraph/master/docs/examples/codepunkt.de.jpg" alt="codepunkt.de open graph image" width="1200" />
 
 \- [Codepunkt](https://codepunkt.de/)
