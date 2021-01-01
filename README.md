@@ -78,9 +78,15 @@ plugins: [
         {
           resolve: 'gatsby-remark-opengraph',
           options: {
-            /**
-             * OPTIONS, see below!
-             */
+            background: '#bada55',
+            // if you create post-specific open graph images, be sure to prefix `./public`
+            outputPath: markdownNode => path.join('./public', markdownNode.fields.slug),
+            texts: [
+              {
+                text: 'Hello world!',
+                font: require.resolve('./src/assets/yourFont.ttf')
+              }
+            ]
           },
         },
       ],
@@ -91,15 +97,15 @@ plugins: [
 
 ## Options
 
-| Name             | Type    | Description              |                                                                                                                                 |
-| :--------------- | :------ | :----------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| **`background`** | string  | _Required_               | Either a 6 digit hex RGB color code or the absolute path to a background image.                                                 |
-| **`texts`**      | Text[]  | _Required_               | An array of `Text` configuration objects. Can be empty. See table below!                                                        |
-| **`filename`**   | string  | Default `'og-image.jpg'` | Filename the open graph image is saved as.                                                                                      |
-| **`width`**      | number  | Default: `1200`          | Width of open graph image in pixels.<br /> Must be equal to the background image width, if a background image is used.          |
-| **`height`**     | number  | Default: `630`           | Height of open graph image in pixels.<br /> Must be equal to the background image height, if a background image is used.        |
-| **`outputPath`** | string  | Default: `''`            | Path the open graph image is saved to.<br/>Is prefixed by `./public` and suffixed by the `filename` option to form a full path. |
-| **`log`**        | boolean | Default: `true`          | Toggles output logging.                                                                                                         |
+| Name             | Type    | Description              |                                                                                                                                                                                                  |
+| :--------------- | :------ | :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`background`** | string  | _Required_               | Either a 6 digit hex RGB color code or the absolute path to a background image.                                                                                                                  |
+| **`texts`**      | Text[]  | _Required_               | An array of `Text` configuration objects. Can be empty. See table below!                                                                                                                         |
+| **`filename`**   | string  | Default `'og-image.jpg'` | Filename the open graph image is saved as.                                                                                                                                                       |
+| **`width`**      | number  | Default: `1200`          | Width of open graph image in pixels.<br /> Must be equal to the background image width, if a background image is used.                                                                           |
+| **`height`**     | number  | Default: `630`           | Height of open graph image in pixels.<br /> Must be equal to the background image height, if a background image is used.                                                                         |
+| **`outputPath`** | string  | Default: `'./public'`    | Path the open graph image is saved to.<br />Is concatenated with the `filename` option to form a full path.<br />If you change this and you're using Gatsby, don't forget to prefix `'.public'`! |
+| **`log`**        | boolean | Default: `true`          | Toggles output logging.                                                                                                                                                                          |
 
 ### `Text` options
 
@@ -135,10 +141,8 @@ exports.createPages = async ({
   reporter,
 }) => {
   await createImage({
-    // results in ./public/og-image.jpg if no filename is set
-    path: '',
     /**
-     * more OPTIONS, see above!
+     * OPTIONS, see above!
      */
   })
 }

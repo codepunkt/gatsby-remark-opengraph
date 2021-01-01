@@ -31,13 +31,12 @@ module.exports = async (
     width = 1200,
     height = 630,
     filename = 'og-image.jpg',
-    outputPath = '',
+    outputPath = './public',
     texts = [],
     log = true,
   }
 ) => {
   const path = join(
-    './public',
     typeof outputPath === 'function' ? outputPath(markdownNode) : outputPath,
     filename
   )
