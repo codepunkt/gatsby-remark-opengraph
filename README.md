@@ -97,15 +97,15 @@ plugins: [
 
 ## Options
 
-| Name             | Type    | Description              |                                                                                                                                                                                                  |
-| :--------------- | :------ | :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`background`** | string  | _Required_               | Either a 6 digit hex RGB color code or the absolute path to a background image.                                                                                                                  |
-| **`texts`**      | Text[]  | _Required_               | An array of `Text` configuration objects. Can be empty. See table below!                                                                                                                         |
-| **`filename`**   | string  | Default `'og-image.jpg'` | Filename the open graph image is saved as.                                                                                                                                                       |
-| **`width`**      | number  | Default: `1200`          | Width of open graph image in pixels.<br /> Must be equal to the background image width, if a background image is used.                                                                           |
-| **`height`**     | number  | Default: `630`           | Height of open graph image in pixels.<br /> Must be equal to the background image height, if a background image is used.                                                                         |
-| **`outputPath`** | string  | Default: `'./public'`    | Path the open graph image is saved to.<br />Is concatenated with the `filename` option to form a full path.<br />If you change this and you're using Gatsby, don't forget to prefix `'.public'`! |
-| **`log`**        | boolean | Default: `true`          | Toggles output logging.                                                                                                                                                                          |
+| Name             | Type               | Description              |                                                                                                                                                                                                                                                               |
+| :--------------- | :----------------- | :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`background`** | string             | _Required_               | Either a 6 digit hex RGB color code or the absolute path to a background image.                                                                                                                                                                               |
+| **`texts`**      | Text[]             | _Required_               | An array of `Text` configuration objects. Can be empty. See table below!                                                                                                                                                                                      |
+| **`filename`**   | string             | Default `'og-image.jpg'` | Filename the open graph image is saved as.                                                                                                                                                                                                                    |
+| **`width`**      | number             | Default: `1200`          | Width of open graph image in pixels.<br /> Must be equal to the background image width, if a background image is used.                                                                                                                                        |
+| **`height`**     | number             | Default: `630`           | Height of open graph image in pixels.<br /> Must be equal to the background image height, if a background image is used.                                                                                                                                      |
+| **`outputPath`** | string \| function | Default: `'./public'`    | Path the open graph image is saved to.<br />Called with the current markdown node if a function is given.<br/>Is concatenated with the `filename` option to form a full path. If you change this and you're using Gatsby, don't forget to prefix `'.public'`! |
+| **`log`**        | boolean            | Default: `true`          | Toggles output logging.                                                                                                                                                                                                                                       |
 
 ### `Text` options
 
@@ -115,7 +115,7 @@ For each entry, you must at least provide the `text` itself and a `font` file:
 
 | Name                  | Type                        | Description           |                                                                                                                                                                                                                                                                  |
 | :-------------------- | :-------------------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`text`**            | string                      | _Required_            | Your text.                                                                                                                                                                                                                                                       |
+| **`text`**            | string \| function          | _Required_            | Your text. Called with the current markdown node if a function is given.                                                                                                                                                                                         |
 | **`font`**            | string                      | _Required_            | Absolute path to a TrueType `.ttf` font.                                                                                                                                                                                                                         |
 | **`fontSize`**        | number                      | Default `64`          | Font size of your text.                                                                                                                                                                                                                                          |
 | **`color`**           | string                      | Default: `'#000000'`  | 6 digit hex RGB color code.                                                                                                                                                                                                                                      |
@@ -128,7 +128,7 @@ For each entry, you must at least provide the `text` itself and a `font` file:
 
 ## General usage
 
-The plugin also exports a named function that accepts the same options as the remark plugin shown above, but function options are called with `null` instead of a markdownNode so it's a good idea to provide strings for `path` and `Text.text`.
+The plugin also exports a named function that accepts the same options as the remark plugin shown above, but function options are called with `null` instead of a markdownNode so it's a good idea to provide strings for `outputPath` and `Text.text`.
 
 If you're using Gatsby, you can use this in your `gatsby-node.js` to generate a generic open graph image for your site:
 
