@@ -32,7 +32,7 @@ module.exports = async (
     height = 630,
     filename = 'og-image.jpg',
     outputPath = './public',
-    texts = [],
+    texts = () => [],
     log = true,
   }
 ) => {
@@ -54,9 +54,12 @@ module.exports = async (
     )
   }
 
+  const textInstructions =
+    typeof texts === 'function' ? texts(markdownNode) : texts
+
   return Promise.all([
     backgroundLayer,
-    ...texts.map(
+    ...textInstructions.map(
       ({
         text,
         font,

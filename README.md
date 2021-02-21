@@ -81,7 +81,7 @@ plugins: [
             background: '#bada55',
             // if you create post-specific open graph images, be sure to prefix `./public`
             outputPath: markdownNode => path.join('./public', markdownNode.fields.slug),
-            texts: [
+            texts: markdownNode => [
               {
                 text: 'Hello world!',
                 font: require.resolve('./src/assets/yourFont.ttf')
@@ -100,7 +100,7 @@ plugins: [
 | Name             | Type               | Description              |                                                                                                                                                                                                                                                               |
 | :--------------- | :----------------- | :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **`background`** | string             | _Required_               | Either a 6 digit hex RGB color code or the absolute path to a background image.                                                                                                                                                                               |
-| **`texts`**      | Text[]             | _Required_               | An array of `Text` configuration objects. Can be empty. See table below!                                                                                                                                                                                      |
+| **`texts`**      | Text[] \| function | _Required_               | An array of `Text` configuration objects or a function which generates them. Can be empty. See table below!                                                                                                                                                   |
 | **`filename`**   | string             | Default `'og-image.jpg'` | Filename the open graph image is saved as.                                                                                                                                                                                                                    |
 | **`width`**      | number             | Default: `1200`          | Width of open graph image in pixels.<br /> Must be equal to the background image width, if a background image is used.                                                                                                                                        |
 | **`height`**     | number             | Default: `630`           | Height of open graph image in pixels.<br /> Must be equal to the background image height, if a background image is used.                                                                                                                                      |
