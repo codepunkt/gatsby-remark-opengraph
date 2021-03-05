@@ -80,10 +80,10 @@ plugins: [
           options: {
             background: '#bada55',
             // if you create post-specific open graph images, be sure to prefix `./public`
-            outputPath: markdownNode => path.join('./public', markdownNode.fields.slug),
+            outputPath: (markdownNode) => path.join('./public', markdownNode.fields.slug),
             texts: [
               {
-                text: 'Hello world!',
+                text: (markdownNode) => markdownNode.frontmatter.title,
                 font: require.resolve('./src/assets/yourFont.ttf')
               }
             ]
